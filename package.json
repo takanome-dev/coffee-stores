@@ -1,9 +1,9 @@
 {
-  "name": "nextjs-template",
+  "name": "coffee-stores",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 9999",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TAKANOME-DEV/nextjs-template.git"
+    "url": "git+https://github.com/TAKANOME-DEV/coffee-stores.git"
   },
   "keywords": [],
   "author": "TAKANOME-DEV",
   "license": "AGPL",
   "bugs": {
-    "url": "https://github.com/TAKANOME-DEV/nextjs-template/issues"
+    "url": "https://github.com/TAKANOME-DEV/coffee-stores/issues"
   },
-  "homepage": "https://github.com/TAKANOME-DEV/nextjs-template#readme",
+  "homepage": "https://github.com/TAKANOME-DEV/coffee-stores#readme",
   "dependencies": {
     "next": "12.2.0",
     "react": "18.2.0",
