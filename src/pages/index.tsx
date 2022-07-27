@@ -5,8 +5,8 @@ import styles from '../styles/Home.module.css';
 import type { NextPage } from 'next';
 
 const Home: NextPage = () => (
-  <div className={styles.container}>
-    <main className={styles.main}>
+  <main className={styles.main}>
+    <div className={styles.bannerContainer}>
       <div className={styles.banner}>
         <h1 className={styles.title}>Find your favorite local coffee</h1>
         <p className={styles.subTitle}>All you need to feel better is coffee</p>
@@ -23,8 +23,8 @@ const Home: NextPage = () => (
           // layout="responsive"
         />
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
 );
 
 export default Home;
