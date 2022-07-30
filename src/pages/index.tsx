@@ -1,28 +1,32 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import Banner from '@components/Banner';
 import Card from '@components/Card';
-import stores from '@data/stores.json';
+import { CoffeeStoreProps } from '@components/types';
+import storesApi from '@lib/stores';
 import styles from '@styles/Home.module.css';
 
-import type { NextPage } from 'next';
+import type { GetStaticProps } from 'next';
 
-const Home: NextPage = () => (
+const Home = ({ coffeeStores }: { coffeeStores: CoffeeStoreProps[] }) => (
   <main className={styles.main}>
     <Banner />
     <h2 className={styles.heading}>Trending Coffee Stores</h2>
     <div className={styles.cardList}>
-      {stores.map((store) => (
-        <Card
-          key={store.id}
-          imgUrl={store.imgUrl}
-          name={store.name}
-          address={store.address}
-        />
+      {coffeeStores.map((store) => (
+        <Card key={store.fsq_id} store={store} />
       ))}
     </div>
   </main>
 );
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  // default latitude,longitude from US
+  const data = await storesApi.getStores('37.090240,-95.712891');
+
+  return {
+    props: {
+      coffeeStores: data,
+    },
+  };
+};

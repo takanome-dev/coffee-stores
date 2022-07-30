@@ -8,7 +8,9 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@styles/*": ["src/styles/*"],
-      "@data/*": ["src/data/*"]
+      "@data/*": ["src/data/*"],
+      "@utils/*": ["src/utils/*"],
+      "@lib/*": ["src/lib/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,

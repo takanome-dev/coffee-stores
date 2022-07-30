@@ -5,18 +5,24 @@ import styles from '@styles/Card.module.css';
 
 import { CoffeeStoreProps } from './types';
 
-const Card = ({ imgUrl, name, address }: CoffeeStoreProps) => (
+interface Props {
+  store: CoffeeStoreProps;
+}
+
+const Card: React.FC<Props> = ({ store }) => (
   <div className={styles.card}>
     <Image
-      src={imgUrl!}
-      alt={name}
+      src={store.mediumImageUrl as string}
+      alt={store.name}
       width="100%"
       height="80px"
       layout="responsive"
     />
     <div className={styles.details}>
-      <h3 className={cls(styles.detailsName, 'ellipsis')}>{name}</h3>
-      <p className={cls(styles.detailsAddress, 'ellipsis')}>{address}</p>
+      <h3 className={cls(styles.detailsName, 'ellipsis')}>{store.name}</h3>
+      <p className={cls(styles.detailsAddress, 'ellipsis')}>
+        {store.location.address}
+      </p>
     </div>
   </div>
 );

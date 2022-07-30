@@ -1,26 +1,465 @@
 [
   {
-    "id": 0,
-    "name": "StrangeLove Coffee StrangeLove Coffee StrangeLove Coffee",
-    "imgUrl": "https://images.unsplash.com/photo-1504753793650-d4a2b783c15e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
-    "websiteUrl": "https://www.strangelovecoffee.ca/",
-    "address": "983 Queen St E, Toronto, ON M4M 1K2 StrangeLove Coffee StrangeLove Coffee",
-    "neighborhood": "at King and Spadina"
+    "fsq_id": "4c07ff4bffb8c9b6ef8d6761",
+    "categories": [
+      {
+        "id": 13034,
+        "name": "Café",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+          "suffix": ".png"
+        }
+      }
+    ],
+    "chains": [],
+    "distance": 15138,
+    "geocodes": {
+      "main": {
+        "latitude": 37.224662,
+        "longitude": -95.706134
+      }
+    },
+    "link": "/v3/places/4c07ff4bffb8c9b6ef8d6761",
+    "location": {
+      "address": "200 N Penn Ave",
+      "census_block": "201259504001060",
+      "country": "US",
+      "cross_street": "Chestnut St",
+      "dma": "Tulsa",
+      "formatted_address": "200 N Penn Ave (Chestnut St), Independence, KS 67301",
+      "locality": "Independence",
+      "postcode": "67301",
+      "region": "KS"
+    },
+    "name": "Ane Maes Natural Foods and Coffee House",
+    "related_places": {},
+    "timezone": "America/Chicago"
   },
   {
-    "id": 1,
-    "name": "Dark Horse Coffee",
-    "imgUrl": "https://images.unsplash.com/photo-1498804103079-a6351b050096?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2468&q=80",
-    "websiteUrl": "https://www.darkhorseespresso.com/",
-    "address": "401 Richmond St W",
-    "neighborhood": "Richmond and Spadina"
+    "fsq_id": "4b434a13f964a520fadd25e3",
+    "categories": [
+      {
+        "id": 13035,
+        "name": "Coffee Shop",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+          "suffix": ".png"
+        }
+      }
+    ],
+    "chains": [
+      {
+        "id": "ab4c54c0-d68a-012e-5619-003048cad9da",
+        "name": "Starbucks"
+      }
+    ],
+    "distance": 42612,
+    "geocodes": {
+      "main": {
+        "latitude": 36.750345,
+        "longitude": -95.934706
+      }
+    },
+    "link": "/v3/places/4b434a13f964a520fadd25e3",
+    "location": {
+      "address": "3801 E Frank Phillips Blvd",
+      "census_block": "401470005004001",
+      "country": "US",
+      "cross_street": "",
+      "dma": "Tulsa",
+      "formatted_address": "3801 E Frank Phillips Blvd, Bartlesville, OK 74006",
+      "locality": "Bartlesville",
+      "postcode": "74006",
+      "region": "OK"
+    },
+    "name": "Starbucks",
+    "related_places": {},
+    "timezone": "America/Chicago"
   },
   {
-    "id": 300,
-    "name": "Route 300",
-    "imgUrl": "https://images.unsplash.com/photo-1498804103079-a6351b050096?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2468&q=80",
-    "websiteUrl": "https://www.darkhorseespresso.com/",
-    "address": "401 Richmond St W",
-    "neighborhood": "Route 300 Neighbourhood"
+    "fsq_id": "4b5b5e27f964a52042f828e3",
+    "categories": [
+      {
+        "id": 13035,
+        "name": "Coffee Shop",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+          "suffix": ".png"
+        }
+      },
+      {
+        "id": 13068,
+        "name": "American Restaurant",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+          "suffix": ".png"
+        }
+      },
+      {
+        "id": 13334,
+        "name": "Sandwich Restaurant",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/deli_",
+          "suffix": ".png"
+        }
+      }
+    ],
+    "chains": [],
+    "distance": 46483,
+    "geocodes": {
+      "main": {
+        "latitude": 36.712258,
+        "longitude": -95.937255
+      }
+    },
+    "link": "/v3/places/4b5b5e27f964a52042f828e3",
+    "location": {
+      "address": "2503 SE Washington Blvd",
+      "address_extended": "Ste 5",
+      "census_block": "401470007003001",
+      "country": "US",
+      "cross_street": "Price Rd.",
+      "dma": "Tulsa",
+      "formatted_address": "2503 SE Washington Blvd (Price Rd.), Bartlesville, OK 74006",
+      "locality": "Bartlesville",
+      "postcode": "74006",
+      "region": "OK"
+    },
+    "name": "Jude's Health & Java House",
+    "related_places": {},
+    "timezone": "America/Chicago"
+  },
+  {
+    "fsq_id": "4ca62fc1a6e08cfa542c7894",
+    "categories": [
+      {
+        "id": 13035,
+        "name": "Coffee Shop",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+          "suffix": ".png"
+        }
+      },
+      {
+        "id": 13145,
+        "name": "Fast Food Restaurant",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+          "suffix": ".png"
+        }
+      },
+      {
+        "id": 13199,
+        "name": "Indian Restaurant",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/indian_",
+          "suffix": ".png"
+        }
+      }
+    ],
+    "chains": [],
+    "distance": 3804,
+    "geocodes": {
+      "main": {
+        "latitude": 37.056102,
+        "longitude": -95.710758
+      }
+    },
+    "link": "/v3/places/4ca62fc1a6e08cfa542c7894",
+    "location": {
+      "address": "308 S Independence Ave",
+      "census_block": "201259507003092",
+      "country": "US",
+      "cross_street": "@ Lamont St",
+      "dma": "Tulsa",
+      "formatted_address": "308 S Independence Ave (@ Lamont St), Dearing, KS 67340",
+      "locality": "Dearing",
+      "postcode": "67340",
+      "region": "KS"
+    },
+    "name": "Coffee & Company",
+    "related_places": {},
+    "timezone": "America/Chicago"
+  },
+  {
+    "fsq_id": "60706c6f8a6c79571fd73526",
+    "categories": [
+      {
+        "id": 13035,
+        "name": "Coffee Shop",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+          "suffix": ".png"
+        }
+      }
+    ],
+    "chains": [],
+    "distance": 10360,
+    "geocodes": {
+      "main": {
+        "latitude": 37.035226,
+        "longitude": -95.618645
+      }
+    },
+    "link": "/v3/places/60706c6f8a6c79571fd73526",
+    "location": {
+      "address": "232 W 9th St",
+      "census_block": "201259510002087",
+      "country": "US",
+      "cross_street": "",
+      "dma": "Tulsa",
+      "formatted_address": "232 W 9th St, Coffeyville, KS 67337",
+      "locality": "Coffeyville",
+      "postcode": "67337",
+      "region": "KS"
+    },
+    "name": "Terebinth Coffee House & Roastery",
+    "related_places": {},
+    "timezone": "America/Chicago"
+  },
+  {
+    "fsq_id": "5ad224c5a22db73bb9f8693f",
+    "categories": [
+      {
+        "id": 13035,
+        "name": "Coffee Shop",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+          "suffix": ".png"
+        }
+      },
+      {
+        "id": 13065,
+        "name": "Restaurant",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+          "suffix": ".png"
+        }
+      }
+    ],
+    "chains": [],
+    "distance": 44462,
+    "geocodes": {
+      "main": {
+        "latitude": 36.749863,
+        "longitude": -95.975732
+      }
+    },
+    "link": "/v3/places/5ad224c5a22db73bb9f8693f",
+    "location": {
+      "address": "200 E 4th St",
+      "census_block": "401470003003005",
+      "country": "US",
+      "cross_street": "4th & Dewey",
+      "dma": "Tulsa",
+      "formatted_address": "200 E 4th St (4th & Dewey), Bartlesville, OK 74003",
+      "locality": "Bartlesville",
+      "postcode": "74003",
+      "region": "OK"
+    },
+    "name": "Outpost Coffee",
+    "related_places": {},
+    "timezone": "America/Chicago"
+  },
+  {
+    "fsq_id": "5c7dd0320457b7002caa1919",
+    "categories": [
+      {
+        "id": 13002,
+        "name": "Bakery",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/bakery_",
+          "suffix": ".png"
+        }
+      },
+      {
+        "id": 13034,
+        "name": "Café",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+          "suffix": ".png"
+        }
+      },
+      {
+        "id": 13035,
+        "name": "Coffee Shop",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+          "suffix": ".png"
+        }
+      }
+    ],
+    "chains": [],
+    "distance": 44497,
+    "geocodes": {
+      "main": {
+        "latitude": 36.750293,
+        "longitude": -95.977254
+      }
+    },
+    "link": "/v3/places/5c7dd0320457b7002caa1919",
+    "location": {
+      "address": "324 S Johnstone Ave",
+      "census_block": "401470003003006",
+      "country": "US",
+      "cross_street": "",
+      "dma": "Tulsa",
+      "formatted_address": "324 S Johnstone Ave, Bartlesville, OK 74003",
+      "locality": "Bartlesville",
+      "postcode": "74003",
+      "region": "OK"
+    },
+    "name": "The Eatery by 3 Kids & A Cake",
+    "related_places": {},
+    "timezone": "America/Chicago"
+  },
+  {
+    "fsq_id": "4bd5b887637ba59307daf670",
+    "categories": [
+      {
+        "id": 13035,
+        "name": "Coffee Shop",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+          "suffix": ".png"
+        }
+      },
+      {
+        "id": 13065,
+        "name": "Restaurant",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+          "suffix": ".png"
+        }
+      }
+    ],
+    "chains": [],
+    "distance": 46727,
+    "geocodes": {
+      "main": {
+        "latitude": 36.717619,
+        "longitude": -95.956784
+      }
+    },
+    "link": "/v3/places/4bd5b887637ba59307daf670",
+    "location": {
+      "address": "2201 Silver Lake Rd",
+      "census_block": "401470007002006",
+      "country": "US",
+      "cross_street": "",
+      "dma": "Tulsa",
+      "formatted_address": "2201 Silver Lake Rd, Bartlesville, OK 74006",
+      "locality": "Bartlesville",
+      "postcode": "74006",
+      "region": "OK"
+    },
+    "name": "doc Lacy's Campus Coffee House",
+    "related_places": {},
+    "timezone": "America/Chicago"
+  },
+  {
+    "fsq_id": "546657b8498e939d95f99f41",
+    "categories": [
+      {
+        "id": 13034,
+        "name": "Café",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+          "suffix": ".png"
+        }
+      },
+      {
+        "id": 13035,
+        "name": "Coffee Shop",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+          "suffix": ".png"
+        }
+      },
+      {
+        "id": 13068,
+        "name": "American Restaurant",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+          "suffix": ".png"
+        }
+      }
+    ],
+    "chains": [],
+    "distance": 48676,
+    "geocodes": {
+      "main": {
+        "latitude": 37.340678,
+        "longitude": -95.261701
+      }
+    },
+    "link": "/v3/places/546657b8498e939d95f99f41",
+    "location": {
+      "address": "1719 Main St",
+      "census_block": "200999502002050",
+      "country": "US",
+      "cross_street": "",
+      "dma": "Joplin-Pittsburg",
+      "formatted_address": "1719 Main St, Parsons, KS 67357",
+      "locality": "Parsons",
+      "neighborhood": ["Winway"],
+      "postcode": "67357",
+      "region": "KS"
+    },
+    "name": "Remnant Cafe",
+    "related_places": {},
+    "timezone": "America/Chicago"
+  },
+  {
+    "fsq_id": "4bd5aac66798ef3b61b2638d",
+    "categories": [
+      {
+        "id": 13034,
+        "name": "Café",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+          "suffix": ".png"
+        }
+      },
+      {
+        "id": 13064,
+        "name": "Pizzeria",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/pizza_",
+          "suffix": ".png"
+        }
+      },
+      {
+        "id": 13068,
+        "name": "American Restaurant",
+        "icon": {
+          "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+          "suffix": ".png"
+        }
+      }
+    ],
+    "chains": [],
+    "distance": 43081,
+    "geocodes": {
+      "main": {
+        "latitude": 36.745621,
+        "longitude": -95.936174
+      }
+    },
+    "link": "/v3/places/4bd5aac66798ef3b61b2638d",
+    "location": {
+      "address": "641 SE Washington Blvd",
+      "census_block": "401470004002031",
+      "country": "US",
+      "cross_street": "",
+      "dma": "Tulsa",
+      "formatted_address": "641 SE Washington Blvd, Bartlesville, OK 74006",
+      "locality": "Bartlesville",
+      "postcode": "74006",
+      "region": "OK"
+    },
+    "name": "Midway Cafe",
+    "related_places": {},
+    "timezone": "America/Chicago"
   }
 ]

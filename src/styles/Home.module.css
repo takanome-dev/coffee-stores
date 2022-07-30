@@ -2,10 +2,8 @@
   max-width: 1100px;
   margin: 5rem auto;
   display: flex;
-  /* align-items: center; */
   flex-direction: column;
   height: 100%;
-  /* border: 2px solid white; */
 }
 
 .hero_img {
