@@ -54,3 +54,19 @@ export interface ApiResponse {
     };
   };
 }
+
+export interface Cities {
+  country_code: string;
+  region_name: string;
+  city_name: string;
+  geonameid: number;
+}
+
+export interface RapidApiResponse {
+  geonameid: number;
+  name: string;
+  population: number;
+  latitude: number;
+  longitude: number;
+  status: string;
+}

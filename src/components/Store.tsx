@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 import styles from '@styles/Store.module.css';
+// import http from '@utils/http';
 import paginate from '@utils/paginate';
 
 import Card from './Card';
@@ -25,6 +26,10 @@ const Store: React.FC<Props> = ({ coffeeStores }) => {
   const totalPages = Math.ceil(coffeeStores.length / pageSize);
   const pages = Array.from(Array(totalPages + 1).keys()).filter((n) => n !== 0);
 
+  // http<RapidApiResponse>('/api/searchCity')
+  //   .then(console.log)
+  //   .catch(console.log);
+
   useEffect(() => {
     const data = paginate<CoffeeStoreProps>(coffeeStores, pageNumber, pageSize);
     setStores(data);
@@ -38,6 +43,16 @@ const Store: React.FC<Props> = ({ coffeeStores }) => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.header}>
+        <div className={styles.nav}>
+          <Link href="/">🏠</Link>
+          <small>&gt;</small>
+          <span>Coffee Stores</span>
+        </div>
+        <div className={styles.search}>
+          <input type="text" placeholder="Search by city name" />
+        </div>
+      </div>
       <div className={styles.cardList}>
         {stores.map((store) => (
           <Card key={store.fsq_id} store={store} />
