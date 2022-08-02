@@ -7,16 +7,16 @@ const applyMiddleware =
   (middleware: any) => (req: NextApiRequest, res: NextApiResponse) =>
     new Promise((resolve, reject) => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      middleware(req, res, (result: any) =>
-        result instanceof Error ? reject(result) : resolve(result)
-      );
+      middleware(req, res, (result: any) => {
+        console.log({ req, res, result });
+        return result instanceof Error ? reject(result) : resolve(result);
+      });
     });
 
 const getIP = (req: NextApiRequest) =>
   req.headers['x-forwarded-for'] ||
   req.headers['x-real-ip'] ||
   req.socket.remoteAddress;
-// req.ip ||
 
 const getRateLimitMiddlewares = ({
   limit = 90,

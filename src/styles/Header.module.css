@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.header .nav > * {
+  font-size: 2rem;
+}
+
+.header .nav a {
+  color: var(--red);
+  text-decoration: underline;
+}
+
+.header .nav small {
+  margin: 0 1rem;
+}
+
+.header .search input {
+  border: 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  color: var(--black);
+  min-width: 300px;
+  transition: outline 0.2s linear;
+}
+
+.header .search input:focus {
+  outline: 5px solid var(--red);
+}

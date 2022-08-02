@@ -1,11 +1,3 @@
-// export interface CoffeeStoreProps {
-//   id?: number;
-//   name?: string;
-//   imgUrl?: string;
-//   address?: string;
-//   neighborhood?: string;
-// }
-
 export interface CoffeeStoreProps {
   fsq_id: string;
   name: string;
@@ -61,7 +53,6 @@ export interface Cities {
   city_name: string;
   geonameid: number;
 }
-
 export interface RapidApiResponse {
   geonameid: number;
   name: string;
@@ -69,4 +60,15 @@ export interface RapidApiResponse {
   latitude: number;
   longitude: number;
   status: string;
+}
+
+export interface PaginationProps {
+  pages: number[];
+  totalPages: number;
+  pageNumber: number;
+  setPageNumber: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export interface HeaderProps {
+  name?: string;
 }
