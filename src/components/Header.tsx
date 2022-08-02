@@ -11,11 +11,13 @@ const Header: React.FC<HeaderProps> = ({ name = '' }) => {
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget;
-    // setInputValue(value);
-    console.log({ value });
-    // console.log({ inputValue });
+
     try {
-      const res = await http<RapidApiResponse>('/api/searchCity');
+      const res = await http<RapidApiResponse>(
+        '/api/searchCity',
+        'POST',
+        value
+      );
       console.log({ res });
     } catch (err) {
       console.error({ err });
