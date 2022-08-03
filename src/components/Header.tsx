@@ -1,38 +1,57 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import Link from 'next/link';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 
+import { Context } from '@context/Provider';
+import storesApi from '@lib/stores';
 import styles from '@styles/Header.module.css';
 import http from '@utils/http';
-import storesApi from '@lib/stores';
 
 import { CoffeeStoreProps, HeaderProps, RapidApiResponse } from './types';
-import { Context } from '@context/Provider';
 
 const Header: React.FC<HeaderProps> = ({ name = '' }) => {
-  // const [inputValue, setInputValue] = useState('');
-  const { handleCoffeeStores } = useContext(Context);
+  const [inputValue, setInputValue] = useState('');
+  const { handleCoffeeStores, loading, handleLoading } = useContext(Context);
 
-  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.currentTarget;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setInputValue(e.currentTarget.value.trim());
+
+  // eslint-disable-next-line consistent-return
+  const handleSubmit = async () => {
+    handleLoading?.(true);
 
     try {
       const res = await http<RapidApiResponse>(
         '/api/searchCity',
         'POST',
-        value
+        inputValue
       );
 
-      if (res.status === 400) return toast.error(res.message);
+      if (res.status === 400) {
+        handleLoading?.(false);
+        return toast.error(res.message);
+      }
 
-      const data = (await storesApi.getStores(
-        `${res.latitude},${res.longitude}`,
-        50
-      )) as CoffeeStoreProps[];
-      handleCoffeeStores?.(data);
+      console.log({ res });
+      // const data = (await storesApi.getStores(
+      //   `${res.latitude},${res.longitude}`,
+      //   50
+      // )) as CoffeeStoreProps[];
+      // return handleCoffeeStores?.(data);
     } catch (err) {
+      handleLoading?.(false);
       console.error({ err });
+      if (err instanceof Error) {
+        return toast.error(err.message);
+      }
     }
+  };
+
+  const keydownHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // eslint-disable-next-line no-void
+    if (e.code === 'Enter') void handleSubmit();
+    if (e.code === 'Escape') setInputValue('');
   };
 
   return (
@@ -50,13 +69,18 @@ const Header: React.FC<HeaderProps> = ({ name = '' }) => {
           <span>Coffee Stores</span>
         )}
       </div>
-      <div className={styles.search}>
+      <fieldset className={styles.search} disabled={loading}>
         <input
           type="text"
           placeholder="Search by city name"
+          value={inputValue}
           onChange={handleChange}
+          onKeyDown={keydownHandler}
         />
-      </div>
+        <button type="submit" onClick={handleSubmit}>
+          🔍
+        </button>
+      </fieldset>
     </div>
   );
 };

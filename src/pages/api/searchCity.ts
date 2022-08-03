@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import { Cities } from '@components/types';
 import cities from '@data/cities.json';
-import getGeoLocations from '@lib/google';
+import getGeoLocations from '@lib/geoLocation';
 
 // Helper method to wait for a middleware to execute before continuing
 // And to throw an error when an error happens in a middleware
@@ -73,6 +73,6 @@ export default async function handler(
       .json({ message: 'The city is not found, please try again' });
   }
 
-  const coffees = await getGeoLocations(city?.geonameid as number);
+  const coffees = await getGeoLocations(city?.geonameid);
   return res.json(coffees);
 }

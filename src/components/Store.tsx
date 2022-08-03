@@ -2,6 +2,7 @@
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 
+import { Context } from '@context/Provider';
 import styles from '@styles/Store.module.css';
 import paginate from '@utils/paginate';
 
@@ -9,13 +10,13 @@ import Card from './Card';
 import Header from './Header';
 import Pagination from './Pagination';
 import { CoffeeStoreProps } from './types';
-import { Context } from '@context/Provider';
 
 const Store = () => {
   const [stores, setStores] = useState<CoffeeStoreProps[]>([]);
   const [pageNumber, setPageNumber] = useState(1);
   const router = useRouter();
   const { coffeeStores } = useContext(Context);
+  console.log({ stores });
 
   const pageSize = 9;
   const totalPages = Math.ceil(coffeeStores.length / pageSize);
