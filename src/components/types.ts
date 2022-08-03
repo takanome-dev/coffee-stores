@@ -59,7 +59,8 @@ export interface RapidApiResponse {
   population: number;
   latitude: number;
   longitude: number;
-  status: string;
+  status: string | number;
+  message?: string;
 }
 
 export interface PaginationProps {

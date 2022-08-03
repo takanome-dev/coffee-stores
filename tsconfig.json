@@ -10,7 +10,8 @@
       "@styles/*": ["src/styles/*"],
       "@data/*": ["src/data/*"],
       "@utils/*": ["src/utils/*"],
-      "@lib/*": ["src/lib/*"]
+      "@lib/*": ["src/lib/*"],
+      "@context/*": ["src/context/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,

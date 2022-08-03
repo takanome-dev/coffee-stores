@@ -1,13 +1,17 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
 
 import styles from '@styles/Header.module.css';
 import http from '@utils/http';
+import storesApi from '@lib/stores';
 
-import { HeaderProps, RapidApiResponse } from './types';
+import { CoffeeStoreProps, HeaderProps, RapidApiResponse } from './types';
+import { Context } from '@context/Provider';
 
 const Header: React.FC<HeaderProps> = ({ name = '' }) => {
   // const [inputValue, setInputValue] = useState('');
+  const { handleCoffeeStores } = useContext(Context);
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget;
@@ -18,7 +22,14 @@ const Header: React.FC<HeaderProps> = ({ name = '' }) => {
         'POST',
         value
       );
-      console.log({ res });
+
+      if (res.status === 400) return toast.error(res.message);
+
+      const data = (await storesApi.getStores(
+        `${res.latitude},${res.longitude}`,
+        50
+      )) as CoffeeStoreProps[];
+      handleCoffeeStores?.(data);
     } catch (err) {
       console.error({ err });
     }
@@ -43,8 +54,6 @@ const Header: React.FC<HeaderProps> = ({ name = '' }) => {
         <input
           type="text"
           placeholder="Search by city name"
-          // value={inputValue}
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onChange={handleChange}
         />
       </div>

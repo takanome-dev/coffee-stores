@@ -1,12 +1,22 @@
 import Store from '@components/Store';
 import { CoffeeStoreProps } from '@components/types';
+import { Context } from '@context/Provider';
 import storesApi from '@lib/stores';
+import { useContext, useEffect } from 'react';
 
 const CoffeeStoresPage = ({
   coffeeStores,
 }: {
   coffeeStores: CoffeeStoreProps[];
-}) => <Store coffeeStores={coffeeStores} />;
+}) => {
+  const { handleCoffeeStores } = useContext(Context);
+
+  useEffect(() => {
+    handleCoffeeStores?.(coffeeStores);
+  }, []);
+
+  return <Store />;
+};
 
 export default CoffeeStoresPage;
 

@@ -47,31 +47,32 @@ const speedLimiter = slowDown({
   delayMs,
 });
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  // try {
-  //   await Promise.all([
-  //     await runMiddleware(req, res, speedLimiter),
-  //     await runMiddleware(req, res, limiter),
-  //   ]);
-  // } catch (err) {
-  //   console.log({ err });
-  //   return res.status(429).send('Too many requests, please try again later');
-  // }
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  try {
+    await Promise.all([
+      await runMiddleware(req, res, speedLimiter),
+      await runMiddleware(req, res, limiter),
+    ]);
+  } catch (err) {
+    console.log({ err });
+    return res.status(429).send('Too many requests, please try again later');
+  }
 
   const query = JSON.parse(req.body as string) as string;
-  console.log({ query });
 
   const city = (cities as Cities[]).find(
     (c) => c.city_name.toLowerCase() === query.toLowerCase()
   );
 
-  console.log({ city });
   if (!city) {
-    return res.status(400).json('The city is not found, please try again');
+    return res
+      .status(400)
+      .json({ message: 'The city is not found, please try again' });
   }
 
-  return res.json(city);
-
-  // const coffees = await getGeoLocations(city?.geonameid as number);
-  // return res.json(coffees);
+  const coffees = await getGeoLocations(city?.geonameid as number);
+  return res.json(coffees);
 }
