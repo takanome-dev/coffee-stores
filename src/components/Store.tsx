@@ -9,14 +9,15 @@ import paginate from '@utils/paginate';
 import Card from './Card';
 import Header from './Header';
 import Pagination from './Pagination';
+import Skeleton from './Skeleton';
 import { CoffeeStoreProps } from './types';
 
 const Store = () => {
   const [stores, setStores] = useState<CoffeeStoreProps[]>([]);
   const [pageNumber, setPageNumber] = useState(1);
   const router = useRouter();
-  const { coffeeStores } = useContext(Context);
-  console.log({ stores });
+  const { coffeeStores, loading } = useContext(Context);
+  console.log({ stores, coffeeStores });
 
   const pageSize = 9;
   const totalPages = Math.ceil(coffeeStores.length / pageSize);
@@ -31,22 +32,28 @@ const Store = () => {
       query: `page=${pageNumber}`,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageNumber]);
+  }, [pageNumber, coffeeStores]);
 
   return (
     <div className={styles.container}>
       <Header />
-      <div className={styles.cardList}>
-        {stores.map((store) => (
-          <Card key={store.fsq_id} store={store} />
-        ))}
-      </div>
-      <Pagination
-        pages={pages}
-        pageNumber={pageNumber}
-        setPageNumber={setPageNumber}
-        totalPages={totalPages}
-      />
+      {loading ? (
+        <Skeleton />
+      ) : (
+        <div className={styles.cardList}>
+          {stores.map((store) => (
+            <Card key={store.fsq_id} store={store} />
+          ))}
+        </div>
+      )}
+      {!loading && (
+        <Pagination
+          pages={pages}
+          pageNumber={pageNumber}
+          setPageNumber={setPageNumber}
+          totalPages={totalPages}
+        />
+      )}
     </div>
   );
 };

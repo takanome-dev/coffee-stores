@@ -1,8 +1,9 @@
+import { useContext, useEffect } from 'react';
+
 import Store from '@components/Store';
 import { CoffeeStoreProps } from '@components/types';
 import { Context } from '@context/Provider';
 import storesApi from '@lib/stores';
-import { useContext, useEffect } from 'react';
 
 const CoffeeStoresPage = ({
   coffeeStores,
@@ -13,6 +14,7 @@ const CoffeeStoresPage = ({
 
   useEffect(() => {
     handleCoffeeStores?.(coffeeStores);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <Store />;

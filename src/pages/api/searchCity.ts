@@ -68,9 +68,10 @@ export default async function handler(
   );
 
   if (!city) {
-    return res
-      .status(400)
-      .json({ message: 'The city is not found, please try again' });
+    return res.status(400).json({
+      status: 400,
+      message: 'The city is not found, please try again',
+    });
   }
 
   const coffees = await getGeoLocations(city?.geonameid);
