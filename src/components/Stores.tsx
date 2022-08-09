@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 
 import { Context } from '@context/Provider';
-import styles from '@styles/Store.module.css';
 import paginate from '@utils/paginate';
 
 import Card from './Card';
@@ -12,7 +11,7 @@ import Pagination from './Pagination';
 import Skeleton from './Skeleton';
 import { CoffeeStoreProps } from './types';
 
-const Store = () => {
+const Stores = () => {
   const [stores, setStores] = useState<CoffeeStoreProps[]>([]);
   const [pageNumber, setPageNumber] = useState(1);
   const router = useRouter();
@@ -35,12 +34,12 @@ const Store = () => {
   }, [pageNumber, coffeeStores]);
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       <Header />
       {loading ? (
         <Skeleton />
       ) : (
-        <div className={styles.cardList}>
+        <div className="cardList">
           {stores.map((store) => (
             <Card key={store.fsq_id} store={store} />
           ))}
@@ -58,4 +57,4 @@ const Store = () => {
   );
 };
 
-export default Store;
+export default Stores;

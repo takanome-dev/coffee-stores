@@ -44,6 +44,11 @@ a {
   white-space: nowrap;
 }
 
+.container {
+  max-width: 1300px;
+  margin: 3rem auto;
+}
+
 .cardList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

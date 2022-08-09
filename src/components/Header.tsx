@@ -69,18 +69,20 @@ const Header: React.FC<HeaderProps> = ({ name = '' }) => {
           <span>Coffee Stores</span>
         )}
       </div>
-      <fieldset className={styles.search} disabled={loading}>
-        <input
-          type="text"
-          placeholder="Search by city name"
-          value={inputValue}
-          onChange={handleChange}
-          onKeyDown={keydownHandler}
-        />
-        <button type="submit" onClick={handleSubmit}>
-          🔍
-        </button>
-      </fieldset>
+      {!name && (
+        <fieldset className={styles.search} disabled={loading}>
+          <input
+            type="text"
+            placeholder="Search by city name"
+            value={inputValue}
+            onChange={handleChange}
+            onKeyDown={keydownHandler}
+          />
+          <button type="submit" onClick={handleSubmit}>
+            🔍
+          </button>
+        </fieldset>
+      )}
     </div>
   );
 };
