@@ -5,34 +5,34 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
 import {
-  CoffeeStoreProps,
-  CoffeeStoreImage,
+  // CoffeeStoreProps,
+  // CoffeeStoreImage,
   ApiResponse,
 } from '@components/types';
 import filterQuery from '@utils/filterQuery';
 import http from '@utils/http';
 
-import unsplashApi from './unsplash';
+// import unsplashApi from './unsplash';
 
-const getStoreImages = async (store: CoffeeStoreProps) => {
-  const data = await http<CoffeeStoreImage[]>(
-    `https://api.foursquare.com/v3/places/${store.fsq_id}/photos`
-  );
+// const getStoreImages = async (store: CoffeeStoreProps) => {
+//   const data = await http<CoffeeStoreImage[]>(
+//     `https://api.foursquare.com/v3/places/${store.fsq_id}/photos`
+//   );
 
-  if (!data.length) {
-    const res = await unsplashApi.search.getPhotos({ query: 'coffee shop' });
-    return {
-      ...store,
-      mediumImageUrl: res.response?.results[0].urls.small,
-      largeImageUrl: res.response?.results[0].urls.regular,
-    };
-  }
+//   if (!data.length) {
+//     const res = await unsplashApi.search.getPhotos({ query: 'coffee shop' });
+//     return {
+//       ...store,
+//       mediumImageUrl: res.response?.results[0].urls.small,
+//       largeImageUrl: res.response?.results[0].urls.regular,
+//     };
+//   }
 
-  const mediumSize = `${data[0]?.prefix}300x300${data[0]?.suffix}`;
-  const largeSize = `${data[0]?.prefix}700x700${data[0]?.suffix}`;
+//   const mediumSize = `${data[0]?.prefix}300x300${data[0]?.suffix}`;
+//   const largeSize = `${data[0]?.prefix}700x700${data[0]?.suffix}`;
 
-  return { ...store, mediumImageUrl: mediumSize, largeImageUrl: largeSize };
-};
+//   return { ...store, mediumImageUrl: mediumSize, largeImageUrl: largeSize };
+// };
 
 const getStores = async (
   latLong?: string,
@@ -44,17 +44,17 @@ const getStores = async (
       query
     )}&ll=${filterQuery(
       latLong as string
-    )}&limit=${limit}&radius=50000&categories=11126%2C13032%2C13033%2C13034%2C13035%2C13036%2C`
+    )}&limit=${limit}&radius=50000&categories=11126%2C13032%2C13033%2C13034%2C13035%2C13036%2C&fields=fsq_id%2Cname%2Clocation%2Ctimezone%2Ctel%2Cfax%2Cemail%2Cwebsite%2Csocial_media%2Crating%2Cpopularity%2Cmenu%2Cphotos%2Cdate_closed%2Chours_popular%2Chours`
   );
 
-  const promises: Promise<CoffeeStoreProps>[] = [];
-  data.results.forEach((store) => promises.push(getStoreImages(store)));
+  // const promises: Promise<CoffeeStoreProps>[] = [];
+  // data.results.forEach((store) => promises.push(getStoreImages(store)));
 
-  const stores = await Promise.all(promises)
-    .then((res) => res)
-    .catch(console.log);
+  // const stores = await Promise.all(promises)
+  //   .then((res) => res)
+  //   .catch(console.log);
 
-  return stores;
+  return data.results;
 };
 
-export default { getStores, getStoreImages };
+export default { getStores };
