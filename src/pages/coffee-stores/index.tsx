@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react';
 import Stores from '@components/Stores';
 import { CoffeeStoreProps } from '@components/types';
 import { Context } from '@context/Provider';
-import storesApi from '@lib/stores';
+import getStores from '@lib/stores';
 import { NYLatLong } from '@utils/constants';
 
 const CoffeeStoresPage = ({
@@ -24,7 +24,7 @@ const CoffeeStoresPage = ({
 export default CoffeeStoresPage;
 
 export const getServerSideProps = async () => {
-  const data = await storesApi.getStores(NYLatLong, 50);
+  const data = await getStores(NYLatLong, 50);
 
   return {
     props: {

@@ -11,7 +11,8 @@
       "@data/*": ["src/data/*"],
       "@utils/*": ["src/utils/*"],
       "@lib/*": ["src/lib/*"],
-      "@context/*": ["src/context/*"]
+      "@context/*": ["src/context/*"],
+      "@hooks/*": ["src/hooks/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,

@@ -1,26 +1,106 @@
 export interface CoffeeStoreProps {
   fsq_id: string;
-  name: string;
-  imageUrl?: string;
-  largeImageUrl?: string;
-  mediumImageUrl?: string;
-  geocodes?: {
+  date_closed: string;
+  description: string;
+  email: string;
+  fax: string;
+  geocodes: {
     main: {
       latitude: number;
       longitude: number;
     };
   };
-  link?: string;
+  hours: {
+    display: string;
+    is_local_holiday: boolean;
+    open_now: boolean;
+    regular: [
+      {
+        close: string;
+        day: number;
+        open: string;
+      }
+    ];
+    seasonal: [
+      {
+        closed: boolean;
+        end_date: string;
+        hours: [
+          {
+            close: string;
+            day: number;
+            open: string;
+          }
+        ];
+        start_date: string;
+      }
+    ];
+  };
+  hours_popular: [
+    {
+      close: string;
+      day: number;
+      open: string;
+    }
+  ];
   location: {
     address: string;
+    address_extended: string;
+    admin_region: string;
     country: string;
     cross_street: string;
     formatted_address: string;
     locality: string;
+    neighborhood: [];
+    po_box: string;
+    post_town: string;
     postcode: string;
     region: string;
   };
+  menu: string;
+  name: string;
+  photos: {
+    id: string;
+    created_at: string;
+    prefix: string;
+    suffix: string;
+    width: number;
+    height: number;
+    classifications: [];
+    tip: {
+      id: string;
+      created_at: string;
+      text: string;
+      url: string;
+      lang: string;
+      agree_count: number;
+      disagree_count: number;
+    };
+  }[];
+  popularity: number;
+  price: number;
+  rating: number;
+  related_places: {
+    children: [];
+  };
+  social_media: {
+    facebook_id: string;
+    instagram: string;
+    twitter: string;
+  };
+  tastes: [];
+  tel: string;
   timezone: string;
+  tips: {
+    id: string;
+    created_at: string;
+    text: string;
+    url: string;
+    lang: string;
+    agree_count: number;
+    disagree_count: number;
+  }[];
+  website: string;
 }
 
 export interface CoffeeStoreImage {

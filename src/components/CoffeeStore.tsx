@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useContext } from 'react';
 
 import { Context } from '@context/Provider';
+import useImage from '@hooks/useImage';
 import styles from '@styles/CoffeeStore.module.css';
 
 import Header from './Header';
@@ -9,7 +10,8 @@ import Header from './Header';
 const CoffeeStore = ({ id }: { id: string }) => {
   const { coffeeStores } = useContext(Context);
   const coffeeStore = coffeeStores.find((c) => c.fsq_id === id);
-  console.log({ coffeeStore });
+
+  const { imageUrl } = useImage(coffeeStore?.photos!);
 
   return (
     <div className="container">
@@ -17,7 +19,7 @@ const CoffeeStore = ({ id }: { id: string }) => {
       <div className={styles.cardContainer}>
         <div className={styles.cardImg}>
           <Image
-            src={coffeeStore?.largeImageUrl!}
+            src={imageUrl}
             alt={coffeeStore?.name}
             width="100%"
             height="100%"
