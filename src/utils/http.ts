@@ -9,7 +9,7 @@ export default async function http<T>(
       Accept: 'application/json',
       Authorization: process.env.FOURSQUARE_API_KEY as string,
     },
-    body: JSON.stringify(body),
+    body: body ? JSON.stringify(body) : null,
   };
 
   const response = await fetch(url, options);

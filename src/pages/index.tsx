@@ -4,7 +4,7 @@ import Banner from '@components/Banner';
 import Card from '@components/Card';
 import { CoffeeStoreProps } from '@components/types';
 import { Context } from '@context/Provider';
-import storesApi from '@lib/stores';
+import getStores from '@lib/stores';
 import styles from '@styles/Home.module.css';
 import { USLatLong } from '@utils/constants';
 
@@ -34,7 +34,7 @@ const Home = ({ coffeeStores }: { coffeeStores: CoffeeStoreProps[] }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await storesApi.getStores(USLatLong);
+  const data = await getStores(USLatLong);
 
   return {
     props: {

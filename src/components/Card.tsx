@@ -1,11 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import cls from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 
+import useImage from '@hooks/useImage';
 import styles from '@styles/Card.module.css';
 import { fallbackImage } from '@utils/constants';
-import getStoreImage from '@utils/getStoreImage';
 
 import { CoffeeStoreProps } from './types';
 
@@ -14,15 +14,26 @@ interface Props {
 }
 
 const Card: React.FC<Props> = ({ store }) => {
-  const [imageUrl, setImageUrl] = useState(fallbackImage);
+  // const [imageUrl, setImageUrl] = useState(fallbackImage);
 
-  // eslint-disable-next-line no-void
-  void (async () => {
-    const image = await getStoreImage(store.photos);
-    setImageUrl(image!);
-  })();
+  // useEffect(() => {
+  //   // eslint-disable-next-line no-void
+  //   void (async () => {
+  //     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  //     const res = await http<string>(
+  //       'http://localhost:9999/api/getStoreImage',
+  //       'POST',
+  //       {
+  //         photos: store.photos,
+  //         size: 400,
+  //       } as any
+  //     );
+  //     setImageUrl(res);
+  //   })();
 
-  console.log({ imageUrl });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+  const { imageUrl } = useImage(store.photos);
 
   return (
     <Link href={`/coffee-stores/${store.fsq_id}`}>
