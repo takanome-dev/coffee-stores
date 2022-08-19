@@ -6,13 +6,6 @@
   height: 100%;
 }
 
-.hero_img {
-  position: absolute;
-  top: 30%;
-  right: 20%;
-  z-index: 1;
-}
-
 .heading {
   font-size: 2.5rem;
 }

@@ -31,3 +31,10 @@
   cursor: pointer;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
+
+.hero_img {
+  position: absolute;
+  top: 10%;
+  right: 20%;
+  z-index: 1;
+}

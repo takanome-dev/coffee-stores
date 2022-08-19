@@ -1,13 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import CoffeeStore from '@components/CoffeeStore';
-import { CoffeeStoreProps } from '@components/types';
 import getStores from '@lib/stores';
 import { USLatLong } from '@utils/constants';
 
-const SingleStorePage = ({ id }: { id: string }) => <CoffeeStore id={id} />;
-
-export default SingleStorePage;
+export default function SingleStorePage({ id }: { id: string }) {
+  return <CoffeeStore id={id} />;
+}
 
 export const getStaticProps: GetStaticProps = (context) => ({
   props: {

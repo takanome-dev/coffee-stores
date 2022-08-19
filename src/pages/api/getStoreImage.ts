@@ -17,9 +17,15 @@ export default async function handler(
   const { photos, size } = JSON.parse(body as string) as Body;
 
   if (photos.length) {
-    return res.json(`${photos[0]?.prefix}${size}x${size}${photos[0]?.suffix}`);
+    const photosArr: string[] = [];
+    photos.forEach((f) =>
+      photosArr.push(`${f?.prefix}${size}x${size}${f?.suffix}`)
+    );
+    return res.json(photosArr);
   }
 
   const result = await unsplashApi.search.getPhotos({ query: 'coffee shop' });
-  return res.json(result.response?.results[0].urls.regular);
+  const photosArr: string[] = [];
+  result.response?.results.forEach((f) => photosArr.push(f.urls.regular));
+  return res.json(photosArr);
 }
