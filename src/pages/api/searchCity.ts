@@ -27,9 +27,12 @@ const getIP = (req: NextApiRequest) =>
   req.headers['x-real-ip'] ||
   req.socket.remoteAddress;
 
+// Limit each IP to 90 requests per `window` (here, per 24 hours)
 const limit = 90;
+// windowMs -> 24 hours
 const windowMs = 24 * 3600 * 1000;
 const delayAfter = Math.round(limit / 2);
+// delayMs -> 500 ms
 const delayMs = 500;
 
 const limiter = rateLimit({
@@ -57,7 +60,7 @@ export default async function handler(
       await runMiddleware(req, res, limiter),
     ]);
   } catch (err) {
-    console.log({ err });
+    console.error(err);
     return res.status(429).send('Too many requests, please try again later');
   }
 

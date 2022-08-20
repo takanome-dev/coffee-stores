@@ -4,11 +4,11 @@ import React, { useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { Context } from '@context/Provider';
-import storesApi from '@lib/stores';
+import getStores from '@lib/stores';
 import styles from '@styles/Header.module.css';
 import http from '@utils/http';
 
-import { CoffeeStoreProps, HeaderProps, RapidApiResponse } from './types';
+import { HeaderProps, RapidApiResponse } from './types';
 
 const Header: React.FC<HeaderProps> = ({ name = '' }) => {
   const [inputValue, setInputValue] = useState('');
@@ -34,14 +34,11 @@ const Header: React.FC<HeaderProps> = ({ name = '' }) => {
       }
 
       console.log({ res });
-      // const data = (await storesApi.getStores(
-      //   `${res.latitude},${res.longitude}`,
-      //   50
-      // )) as CoffeeStoreProps[];
-      // return handleCoffeeStores?.(data);
+      const data = await getStores(`${res.latitude},${res.longitude}`, 50);
+      return handleCoffeeStores?.(data);
     } catch (err) {
       handleLoading?.(false);
-      console.error({ err });
+      console.error(err);
       if (err instanceof Error) {
         return toast.error(err.message);
       }
@@ -70,18 +67,21 @@ const Header: React.FC<HeaderProps> = ({ name = '' }) => {
         )}
       </div>
       {!name && (
-        <fieldset className={styles.search} disabled={loading}>
-          <input
-            type="text"
-            placeholder="Search by city name"
-            value={inputValue}
-            onChange={handleChange}
-            onKeyDown={keydownHandler}
-          />
-          <button type="submit" onClick={handleSubmit}>
-            🔍
-          </button>
-        </fieldset>
+        // <fieldset className={styles.search} disabled={loading}>
+        //   <input
+        //     type="text"
+        //     placeholder="Search by city name"
+        //     value={inputValue}
+        //     onChange={handleChange}
+        //     onKeyDown={keydownHandler}
+        //   />
+        //   <button type="submit" onClick={handleSubmit}>
+        //     🔍
+        //   </button>
+        // </fieldset>
+        <button type="button" className={styles.button}>
+          Find stores nearby
+        </button>
       )}
     </div>
   );

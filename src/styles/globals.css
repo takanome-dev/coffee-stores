@@ -14,7 +14,6 @@ body {
 :root {
   /* colors */
   --primary: #3d0c02;
-  /* --primary: #8f503e; */
   --secondary: #f1cb48;
   --red: #d73f3c;
   --bg-1: #f0eae5;
@@ -28,6 +27,10 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+button:focus {
+  outline: 5px solid var(--primary);
 }
 
 * {
