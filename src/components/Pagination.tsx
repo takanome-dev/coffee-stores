@@ -16,7 +16,10 @@ const Pagination: React.FC<PaginationProps> = ({
   const handleChange = (page: number) => {
     setPageNumber(page);
     // eslint-disable-next-line no-void
-    void router.push({ pathname: '/coffee-stores', query: `page=${page}` });
+    return void router.push({
+      pathname: '/coffee-stores',
+      query: `page=${page}`,
+    });
   };
 
   return (

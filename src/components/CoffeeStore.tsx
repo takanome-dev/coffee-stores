@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 
 import { Context } from '@context/Provider';
@@ -7,40 +8,49 @@ import styles from '@styles/CoffeeStore.module.css';
 import { fallbackImage } from '@utils/constants';
 
 import Header from './Header';
+import Skeleton from './Skeleton';
 
 const CoffeeStore = ({ id }: { id: string }) => {
+  const router = useRouter();
   const [photo, setPhoto] = useState(fallbackImage);
   const { coffeeStores } = useContext(Context);
   // console.log({ coffeeStores });
   const coffeeStore = coffeeStores.find((c) => c.fsq_id === id);
+  console.log({ coffeeStore });
 
   const { imageUrls } = useImage(coffeeStore?.photos!);
-  // console.log({ imageUrls, photo });
 
   useEffect(() => {
     setPhoto(imageUrls[0]);
   }, [imageUrls]);
 
+  if (router.isFallback) {
+    return <Skeleton />;
+  }
+
   return (
     <div className="container">
       <Header name={coffeeStore?.name} />
       <div className={styles.cardContainer}>
-        <div className={styles.cardImg}>
-          <Image
-            src={photo}
-            alt={coffeeStore?.name}
-            width="100%"
-            height="100%"
-            layout="responsive"
-          />
+        <div className={styles.cardImagesContainer}>
+          <div className={styles.cardImage}>
+            <Image
+              src={photo}
+              alt={coffeeStore?.name}
+              width="100%"
+              height="100%"
+              layout="responsive"
+            />
+          </div>
           {imageUrls.length > 2 && (
-            <div className={styles.cardImages}>
+            <div className={styles.cardThumbnailImages}>
               <Image
                 src={imageUrls[1]}
                 alt={coffeeStore?.name}
                 width="100%"
                 height="100%"
                 layout="responsive"
+                onClick={() => setPhoto(imageUrls[1])}
               />
               {imageUrls[2] && (
                 <Image
@@ -49,6 +59,17 @@ const CoffeeStore = ({ id }: { id: string }) => {
                   width="100%"
                   height="100%"
                   layout="responsive"
+                  onClick={() => setPhoto(imageUrls[2])}
+                />
+              )}
+              {imageUrls[3] && (
+                <Image
+                  src={imageUrls[3]}
+                  alt={coffeeStore?.name}
+                  width="100%"
+                  height="100%"
+                  layout="responsive"
+                  onClick={() => setPhoto(imageUrls[3])}
                 />
               )}
             </div>
@@ -73,25 +94,56 @@ const CoffeeStore = ({ id }: { id: string }) => {
             <p>⭐ Ratings: &nbsp; {coffeeStore?.rating}</p>
           )}
           <p>📞 Tel: &nbsp; {coffeeStore?.tel}</p>
+          {coffeeStore?.email && <p>📫 Email: &nbsp; {coffeeStore?.email}</p>}
+          {coffeeStore?.website && (
+            <p>
+              🔗 Website: &nbsp;{' '}
+              <a
+                href={`${coffeeStore?.website}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {coffeeStore?.website}
+              </a>
+            </p>
+          )}
           {coffeeStore?.social_media &&
             Object.keys(coffeeStore?.social_media).length && (
               <div className={styles.social_media}>
                 {coffeeStore?.social_media.facebook_id && (
                   <p>
                     😶 Facebook ID: &nbsp;
-                    <span>{coffeeStore?.social_media.facebook_id}</span>
+                    <a
+                      href={`https://web.facebook.com/${coffeeStore?.social_media.facebook_id}/`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      @{coffeeStore?.name}
+                    </a>
                   </p>
                 )}
                 {coffeeStore?.social_media.twitter && (
                   <p>
                     🐦 Twitter: &nbsp;
-                    <span>@{coffeeStore?.social_media.twitter}</span>
+                    <a
+                      href={`https://twitter.com/${coffeeStore?.social_media.twitter}/`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      @{coffeeStore?.social_media.twitter}
+                    </a>
                   </p>
                 )}
                 {coffeeStore?.social_media.instagram && (
                   <p>
                     📸 Instagram: &nbsp;
-                    <span>@{coffeeStore?.social_media.instagram}</span>
+                    <a
+                      href={`https://www.instagram.com/${coffeeStore?.social_media.instagram}/`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      @{coffeeStore?.social_media.instagram}
+                    </a>
                   </p>
                 )}
               </div>

@@ -16,7 +16,6 @@ const Stores = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const router = useRouter();
   const { coffeeStores, loading } = useContext(Context);
-  console.log({ stores, coffeeStores });
 
   const pageSize = 9;
   const totalPages = Math.ceil(coffeeStores.length / pageSize);
