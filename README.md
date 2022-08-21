@@ -28,6 +28,12 @@ npm run lint
 To fix the linting errors, use the following command:
 
 ```sh
+npm run lint:fix
+```
+
+To format the code, use the following command:
+
+```sh
 npm run format
 ```
 

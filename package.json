@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "npx eslint . --report-unused-disable-directives",
-    "lint:fix": "pnpm lint -- --fix",
+    "lint:fix": "npm lint -- --fix",
     "prettier-check": "prettier --check ./",
     "format": "prettier --write  \"./**/*.{ts,tsx,json,md,yaml}\"",
     "prepare": "husky install"

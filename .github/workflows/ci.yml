@@ -25,10 +25,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install Dependencies
-        run: pnpm ci
+        run: npm ci
 
       - name: Lint Source Files
-        run: pmpm lint
+        run: npm run lint
 
       - name: Verify Build
-        run: pnpm build
+        run: npm run build
