@@ -4,10 +4,6 @@
   gap: 2rem;
 }
 
-/* .banner {
-  border: 2px solid black;
-} */
-
 .banner .title {
   font-size: 5rem;
   color: var(--primary);
@@ -23,8 +19,6 @@
   padding: 1rem;
   background-color: var(--white);
   color: var(--primary);
-  /* background-color: var(--red);
-  color: var(--white); */
   border: 1px solid var(--primary);
   border-radius: 0.5rem;
   font-size: 2rem;
@@ -37,4 +31,16 @@
   top: 10%;
   right: 20%;
   z-index: 1;
+}
+
+@media (max-width: 1000px) {
+  .hero_img {
+    right: 0;
+  }
+}
+
+@media (max-width: 748px) {
+  .hero_img {
+    display: none;
+  }
 }

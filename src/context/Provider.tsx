@@ -33,6 +33,7 @@ const Provider: React.FC<Props> = ({ children }) => {
       payload: value,
     });
 
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
   const value = {
     coffeeStores: state.coffeeStores,
     loading: state.loading,

@@ -1,24 +1,20 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { Context } from '@context/Provider';
 import useImage from '@hooks/useImage';
 import styles from '@styles/CoffeeStore.module.css';
 import { fallbackImage } from '@utils/constants';
 
 import Header from './Header';
 import Skeleton from './Skeleton';
+import { CoffeeStoreProps } from './types';
 
-const CoffeeStore = ({ id }: { id: string }) => {
+const CoffeeStore = ({ coffeeStore }: { coffeeStore: CoffeeStoreProps }) => {
   const router = useRouter();
   const [photo, setPhoto] = useState(fallbackImage);
-  const { coffeeStores } = useContext(Context);
-  // console.log({ coffeeStores });
-  const coffeeStore = coffeeStores.find((c) => c.fsq_id === id);
-  console.log({ coffeeStore });
 
-  const { imageUrls } = useImage(coffeeStore?.photos!);
+  const { imageUrls } = useImage(coffeeStore?.photos);
 
   useEffect(() => {
     setPhoto(imageUrls[0]);
@@ -86,14 +82,16 @@ const CoffeeStore = ({ id }: { id: string }) => {
           <p className={styles.country}>
             🏁 Country: &nbsp; {coffeeStore?.location.country}
           </p>
-          <p>⏲️ Hours: &nbsp; {coffeeStore?.hours.display}</p>
+          {coffeeStore?.hours.display && (
+            <p>⏲️ Hours: &nbsp; {coffeeStore?.hours.display}</p>
+          )}
           <p>
             👁️ State: &nbsp; {coffeeStore?.hours.open_now ? 'Open' : 'Close'}
           </p>
           {coffeeStore?.rating && (
             <p>⭐ Ratings: &nbsp; {coffeeStore?.rating}</p>
           )}
-          <p>📞 Tel: &nbsp; {coffeeStore?.tel}</p>
+          {coffeeStore?.tel && <p>📞 Tel: &nbsp; {coffeeStore?.tel}</p>}
           {coffeeStore?.email && <p>📫 Email: &nbsp; {coffeeStore?.email}</p>}
           {coffeeStore?.website && (
             <p>
@@ -112,7 +110,7 @@ const CoffeeStore = ({ id }: { id: string }) => {
               <div className={styles.social_media}>
                 {coffeeStore?.social_media.facebook_id && (
                   <p>
-                    😶 Facebook ID: &nbsp;
+                    💬 Facebook: &nbsp;
                     <a
                       href={`https://web.facebook.com/${coffeeStore?.social_media.facebook_id}/`}
                       target="_blank"

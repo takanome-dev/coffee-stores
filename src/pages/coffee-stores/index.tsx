@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
 
+import Meta from '@components/Meta';
 import Stores from '@components/Stores';
 import { CoffeeStoreProps } from '@components/types';
 import { Context } from '@context/Provider';
@@ -18,7 +19,16 @@ const CoffeeStoresPage = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <Stores />;
+  return (
+    <>
+      <Meta
+        title="Coffee Stores | Discover Coffee Stores"
+        description="Find your favorite local coffee"
+        image="/static/coffeestores.webp"
+      />
+      <Stores />
+    </>
+  );
 };
 
 export default CoffeeStoresPage;

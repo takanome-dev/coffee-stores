@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import cls from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';

@@ -6,7 +6,10 @@
     "dev": "next dev -p 9999",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "npx eslint . --report-unused-disable-directives",
+    "lint:fix": "pnpm lint -- --fix",
+    "prettier-check": "prettier --check ./",
+    "format": "prettier --write  \"./**/*.{ts,tsx,json,md,yaml}\"",
     "prepare": "husky install"
   },
   "repository": {
@@ -22,8 +25,6 @@
   "homepage": "https://github.com/TAKANOME-DEV/coffee-stores#readme",
   "dependencies": {
     "classnames": "^2.3.1",
-    "express-rate-limit": "^6.5.1",
-    "express-slow-down": "^1.4.0",
     "lodash": "^4.17.21",
     "next": "12.2.0",
     "react": "18.2.0",

@@ -16,7 +16,7 @@ const Banner = () => (
     </div>
     <div className={styles.hero_img}>
       <Image
-        src="/static/man_with_coffee.png"
+        src="/static/man_with_coffee.webp"
         alt="Hero Image"
         width="300px"
         height="300px"

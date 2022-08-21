@@ -35,23 +35,25 @@ const Stores = () => {
   return (
     <div className="container">
       <Header />
-      {loading ? (
-        <Skeleton />
-      ) : (
-        <div className="cardList">
-          {stores.map((store) => (
-            <Card key={store.fsq_id} store={store} />
-          ))}
-        </div>
-      )}
-      {!loading && (
-        <Pagination
-          pages={pages}
-          pageNumber={pageNumber}
-          setPageNumber={setPageNumber}
-          totalPages={totalPages}
-        />
-      )}
+      <div className="wrapper">
+        {loading ? (
+          <Skeleton />
+        ) : (
+          <div className="cardList">
+            {stores.map((store) => (
+              <Card key={store.fsq_id} store={store} />
+            ))}
+          </div>
+        )}
+        {!loading && (
+          <Pagination
+            pages={pages}
+            pageNumber={pageNumber}
+            setPageNumber={setPageNumber}
+            totalPages={totalPages}
+          />
+        )}
+      </div>
     </div>
   );
 };

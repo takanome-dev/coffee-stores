@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 
 import Banner from '@components/Banner';
 import Card from '@components/Card';
+import Meta from '@components/Meta';
 import { CoffeeStoreProps } from '@components/types';
 import { Context } from '@context/Provider';
 import getStores from '@lib/stores';
@@ -19,15 +20,24 @@ const Home = ({ coffeeStores }: { coffeeStores: CoffeeStoreProps[] }) => {
   }, []);
 
   return (
-    <main className={styles.main}>
-      <Banner />
-      <h2 className={styles.heading}>Trending Coffee Stores</h2>
-      <div className={styles.cardList}>
-        {coffeeStores.map((store) => (
-          <Card key={store.fsq_id} store={store} />
-        ))}
-      </div>
-    </main>
+    <>
+      <Meta
+        title="Coffee Stores"
+        description="Find your favorite local coffee"
+        image="/static/coffeestores.webp"
+      />
+      <main className={styles.main}>
+        <div className="wrapper">
+          <Banner />
+          <h2 className={styles.heading}>Trending Coffee Stores</h2>
+          <div className={styles.cardList}>
+            {coffeeStores.map((store) => (
+              <Card key={store.fsq_id} store={store} />
+            ))}
+          </div>
+        </div>
+      </main>
+    </>
   );
 };
 

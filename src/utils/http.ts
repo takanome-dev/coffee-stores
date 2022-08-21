@@ -1,7 +1,7 @@
 export default async function http<T>(
   url: string,
   method = 'GET',
-  body?: BodyInit
+  body?: BodyInit | Object
 ): Promise<T> {
   const options = {
     method,

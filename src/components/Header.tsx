@@ -1,55 +1,44 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 import Link from 'next/link';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
 import { Context } from '@context/Provider';
-import getStores from '@lib/stores';
+import useLocation from '@hooks/useLocation';
 import styles from '@styles/Header.module.css';
 import http from '@utils/http';
 
-import { HeaderProps, RapidApiResponse } from './types';
+import { CoffeeStoreProps, HeaderProps } from './types';
 
 const Header: React.FC<HeaderProps> = ({ name = '' }) => {
-  const [inputValue, setInputValue] = useState('');
-  const { handleCoffeeStores, loading, handleLoading } = useContext(Context);
+  const { handleCoffeeStores, handleLoading } = useContext(Context);
+  const { error, coords, handleGetGeoLocation } = useLocation();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setInputValue(e.currentTarget.value.trim());
-
-  // eslint-disable-next-line consistent-return
-  const handleSubmit = async () => {
-    handleLoading?.(true);
-
-    try {
-      const res = await http<RapidApiResponse>(
-        '/api/searchCity',
-        'POST',
-        inputValue
-      );
-
-      if (res.status === 400) {
-        handleLoading?.(false);
-        return toast.error(res.message);
-      }
-
-      console.log({ res });
-      const data = await getStores(`${res.latitude},${res.longitude}`, 50);
-      return handleCoffeeStores?.(data);
-    } catch (err) {
-      handleLoading?.(false);
-      console.error(err);
-      if (err instanceof Error) {
-        return toast.error(err.message);
-      }
-    }
-  };
-
-  const keydownHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  useEffect(() => {
     // eslint-disable-next-line no-void
-    if (e.code === 'Enter') void handleSubmit();
-    if (e.code === 'Escape') setInputValue('');
-  };
+    void (async () => {
+      if (!coords) {
+        return;
+      }
+
+      handleLoading?.(true);
+      try {
+        const data = await http<CoffeeStoreProps[]>(
+          '/api/getStoresNearby',
+          'POST',
+          { coords }
+        );
+        handleCoffeeStores?.(data);
+      } catch (err) {
+        console.error(err);
+      }
+
+      handleLoading?.(false);
+    })();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coords]);
+
+  if (error) toast.error(error);
 
   return (
     <div className={styles.header}>
@@ -67,19 +56,11 @@ const Header: React.FC<HeaderProps> = ({ name = '' }) => {
         )}
       </div>
       {!name && (
-        // <fieldset className={styles.search} disabled={loading}>
-        //   <input
-        //     type="text"
-        //     placeholder="Search by city name"
-        //     value={inputValue}
-        //     onChange={handleChange}
-        //     onKeyDown={keydownHandler}
-        //   />
-        //   <button type="submit" onClick={handleSubmit}>
-        //     🔍
-        //   </button>
-        // </fieldset>
-        <button type="button" className={styles.button}>
+        <button
+          type="button"
+          className={styles.button}
+          onClick={handleGetGeoLocation}
+        >
           Find stores nearby
         </button>
       )}
@@ -87,4 +68,4 @@ const Header: React.FC<HeaderProps> = ({ name = '' }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
