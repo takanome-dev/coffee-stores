@@ -11,7 +11,7 @@ export default function useImage(photos: CoffeeStoreImage[], size = 400) {
     // eslint-disable-next-line no-void
     void (async () => {
       const res = await http<string[]>(
-        'http://localhost:9999/api/getStoreImage',
+        'https://coffee-stores-dev.vercel.app/api/getStoreImage',
         'POST',
         { photos, size }
       );
