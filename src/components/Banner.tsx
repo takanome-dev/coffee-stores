@@ -7,10 +7,13 @@ const Banner = () => (
   <div className={styles.container}>
     <div className={styles.banner}>
       <h1 className={styles.title}>Find your favorite local coffee</h1>
-      <p className={styles.subTitle}>All you need to feel better is coffee</p>
+      <p className={styles.subTitle}>
+        All you need to feel better is coffee
+        <span className={styles.coffee}>☕</span>
+      </p>
       <Link href="/coffee-stores">
         <button type="button" className={styles.button}>
-          Discover Coffee Store
+          Discover Coffee Stores
         </button>
       </Link>
     </div>
@@ -20,7 +23,6 @@ const Banner = () => (
         alt="Hero Image"
         width="300px"
         height="300px"
-        // layout="responsive"
       />
     </div>
   </div>
