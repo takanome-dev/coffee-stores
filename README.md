@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Coffee Stores ☕</h1>
 
-## Getting Started
+<p align="center"><a href="https://github.com/TAKANOME-DEV/coffee-stores"><img alt="Licence Badge" src="https://img.shields.io/github/license/TAKANOME-DEV/coffee-stores?color=%2330C151"></a></p>
 
-First, run the development server:
+## ℹ️ Overview
+
+A coffee stores app where you can discover coffee stores around the world.
+You can also find your favorite local coffee by browsing stores near you 🌐
+
+## :desktop_computer: Local development
+
+To install the application:
 
 ```bash
-npm run dev
+npm install
 # or
-yarn dev
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## :art: Code linting And Formatting
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To check the code and styles quality, use the following command:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```sh
+npm run lint
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+To fix the linting errors, use the following command:
 
-## Learn More
+```sh
+npm run format
+```
 
-To learn more about Next.js, take a look at the following resources:
+## ✏️ Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project welcomes contributions and suggestions.
+Please see the [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## :balance_scale: LICENSE
 
-## Deploy on Vercel
+The scripts and documentation in this project are released under the [AGPL LICENSE](#️-licence)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📫 Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Find out more about how to reach me at [takanomedev221@gmail.com](mailto:takanomedev221@gmail.com)
