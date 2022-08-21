@@ -1,6 +1,6 @@
 <h1 align="center">Coffee Stores ☕</h1>
 
-<p align="center"><a href="https://github.com/TAKANOME-DEV/coffee-stores"><img alt="Licence Badge" src="https://img.shields.io/github/license/TAKANOME-DEV/coffee-stores?color=%2330C151"></a></p>
+<p align="center"><a href="https://github.com/TAKANOME-DEV/coffee-stores"><img alt="Licence Badge" src="https://img.shields.io/github/license/TAKANOME-DEV/coffee-stores?color=%2330C151"></a><a href="https://github.com/TAKANOME-DEV/coffee-stores"><img alt="GitHub Actions status" src="https://github.com/TAKANOME-DEV/coffee-stores/actions/workflows/ci.yml/badge.svg"></a> <a href="https://github.com/TAKANOME-DEV/coffee-stores"><img alt="GitHub Actions status" src="https://github.com/TAKANOME-DEV/coffee-stores/actions/workflows/codeql-analysis.yml/badge.svg"></a></p>
 
 ## ℹ️ Overview
 
