@@ -21,7 +21,7 @@ specifiers:
   eslint-import-resolver-typescript: ^3.0.0
   eslint-plugin-import: ^2.26.0
   eslint-plugin-jsx-a11y: ^6.5.1
-  eslint-plugin-prettier: ^4.0.0
+  eslint-plugin-prettier: ^5.0.0
   eslint-plugin-react: ^7.30.0
   eslint-plugin-react-hooks: ^4.5.0
   husky: ^8.0.1
@@ -63,7 +63,7 @@ devDependencies:
   eslint-import-resolver-typescript: 3.1.1_srrmf5la5dmnsfe2mpg6sboreu
   eslint-plugin-import: 2.26.0_r2y4cm4v4rieihycxdg5iubhl4
   eslint-plugin-jsx-a11y: 6.6.0_eslint@8.18.0
-  eslint-plugin-prettier: 4.1.0_xu6ewijrtliw5q5lksq5uixwby
+  eslint-plugin-prettier: 5.5.4_xu6ewijrtliw5q5lksq5uixwby
   eslint-plugin-react: 7.30.1_eslint@8.18.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.18.0
   husky: 8.0.1
@@ -1452,6 +1452,11 @@ packages:
       fastq: 1.13.0
     dev: true
 
+  /@pkgr/core/0.2.9:
+    resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
+    engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+    dev: true
+
   /@pkgr/utils/2.2.0:
     resolution: {integrity: sha512-/+EeY/T/NLCfF4rvgUetl7ERNwoPz5q/p+8CYeAIFblsKSQbVJjmMccs/Y7CsOPv47hXcBrhk5IqOf9AqRNfhg==}
     engines: {node: '>=12'}
@@ -2388,14 +2393,17 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-plugin-prettier/4.1.0_xu6ewijrtliw5q5lksq5uixwby:
-    resolution: {integrity: sha512-A3AXIEfTnq3D5qDFjWJdQ9c4BLhw/TqhSR+6+SVaoPJBAWciFEuJiNQh275OnjRrAi7yssZzuWBRw66VG2g6UA==}
-    engines: {node: '>=12.0.0'}
+  /eslint-plugin-prettier/5.5.4_xu6ewijrtliw5q5lksq5uixwby:
+    resolution: {integrity: sha512-swNtI95SToIz05YINMA6Ox5R057IMAmWZ26GqPxusAp1TZzj+IdY9tXNWWD3vkF/wEqydCONcwjTFpxybBqZsg==}
+    engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
-      eslint: '>=7.28.0'
-      eslint-config-prettier: '*'
-      prettier: '>=2.0.0'
+      '@types/eslint': '>=8.0.0'
+      eslint: '>=8.0.0'
+      eslint-config-prettier: '>= 7.0.0 <10.0.0 || >=10.1.0'
+      prettier: '>=3.0.0'
     peerDependenciesMeta:
+      '@types/eslint':
+        optional: true
       eslint-config-prettier:
         optional: true
     dependencies:
@@ -2403,6 +2411,7 @@ packages:
       eslint-config-prettier: 8.5.0_eslint@8.18.0
       prettier: 2.7.1
       prettier-linter-helpers: 1.0.0
+      synckit: 0.11.11
     dev: true
 
   /eslint-plugin-react-hooks/4.6.0_eslint@8.18.0:
@@ -3588,6 +3597,13 @@ packages:
   /supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+    dev: true
+
+  /synckit/0.11.11:
+    resolution: {integrity: sha512-MeQTA1r0litLUf0Rp/iisCaL8761lKAZHaimlbGK4j0HysC4PLfqygQj9srcs0m2RdtDYnF8UuYyKpbjHYp7Jw==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    dependencies:
+      '@pkgr/core': 0.2.9
     dev: true
 
   /synckit/0.7.1:
